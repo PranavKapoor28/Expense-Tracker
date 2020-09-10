@@ -1,0 +1,85 @@
+{
+  "project_info": {
+    "project_number": "914476572259",
+    "firebase_url": "https://ecommerce-app-businesstech.firebaseio.com",
+    "project_id": "ecommerce-app-businesstech",
+    "storage_bucket": "ecommerce-app-businesstech.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:914476572259:android:75e5d3725f535b336c2256",
+        "android_client_info": {
+          "package_name": "com.example.ecommerce_buisness_tech"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "914476572259-1deb9hkfncip5o1kbkjs780vinhptdr6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ecommerce_buisness_tech",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "914476572259-a8hkjus0l5vlfdn34r0ss95t71u5jqfa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYRp3l2CKQQRgfwljpMf17HL69a3uXSRw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "914476572259-a8hkjus0l5vlfdn34r0ss95t71u5jqfa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:914476572259:android:e4d1bcfcc8ceacdf6c2256",
+        "android_client_info": {
+          "package_name": "com.libs.flutterfirebaseauth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "914476572259-2a40ankce86artf76vbte7teqtou0oq2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.libs.flutterfirebaseauth",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "914476572259-a8hkjus0l5vlfdn34r0ss95t71u5jqfa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYRp3l2CKQQRgfwljpMf17HL69a3uXSRw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "914476572259-a8hkjus0l5vlfdn34r0ss95t71u5jqfa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
