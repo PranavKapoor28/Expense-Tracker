@@ -1,5 +1,6 @@
 import 'file:///C:/Users/Pranav%20kapoor/AndroidStudioProjects/Internship%20apps/ecommerce_buisness_tech/lib/Category/MorningCategory/MorningCategory.dart';
 import 'package:ecommerce_buisness_tech/Category//EveningCategory/eveningCategory.dart';
+import 'package:ecommerce_buisness_tech/main.dart';
 import 'package:flutter/material.dart';
 
 class Categories extends StatelessWidget {
@@ -10,7 +11,10 @@ class Categories extends StatelessWidget {
         automaticallyImplyLeading: true,
         leading:IconButton(
           icon: Icon(Icons.arrow_back),
-          onPressed:() => Navigator.pop(context,false),
+          onPressed:() => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => LoginOptions()),
+          ),
         ),
         title: Text('Add Customers'),
         backgroundColor: Colors.black,
