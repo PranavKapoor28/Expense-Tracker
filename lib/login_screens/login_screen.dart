@@ -1,7 +1,6 @@
-import 'file:///C:/Users/Pranav%20kapoor/AndroidStudioProjects/Internship%20apps/ecommerce_buisness_tech/lib/Category/categories.dart';
+import 'package:ecommerce_buisness_tech/Category/categories.dart';
+import 'package:ecommerce_buisness_tech/login_screens/registration_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
-import 'registration_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -31,159 +30,162 @@ class _LoginPageState extends State<LoginPage> {
         title: Text('Login Using your email'),
         backgroundColor: Colors.black,
       ),
-        body: SingleChildScrollView(
+      body: SingleChildScrollView(
         child:CustomPaint(
-        painter: BackgroundSignIn(),
-      child:Center(
-          child: Column(
-            children: [
-              SizedBox(height: 200,),
-              new Text(
-                "Login now.",
-                textScaleFactor: 3.0,
-                style: TextStyle(color: Colors.blue, fontWeight:FontWeight.bold,fontSize: 20),
-              ),
-              SizedBox(height:130),
-              Card(
-                color: Colors.grey.shade100,
-                child: Padding(
-                  padding: EdgeInsets.all(40),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Form(
-                        key: _formStateKey,
-                        autovalidate: true,
-                        child: Column(
-                          children: <Widget>[
-                            Padding(
-                              padding:
-                              EdgeInsets.only(left: 10, right: 10, bottom: 5),
-                              child: TextFormField(
-                                validator: validateEmail,
-                                onSaved: (value) {
-                                  _emailId = value;
-                                },
-                                keyboardType: TextInputType.emailAddress,
-                                controller: _emailIdController,
-                                decoration: InputDecoration(
-                                  focusedBorder: new UnderlineInputBorder(
-                                    borderSide: new BorderSide(
+          painter: BackgroundSignIn(),
+          child:Center(
+              child: Column(
+                children: [
+                  SizedBox(height: 200,),
+                  new Text(
+                    "Login now.",
+                    textScaleFactor: 3.0,
+                    style: TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
+                  ),
+                  SizedBox(height:130),
+                  Card(
+                    color: Colors.grey.shade100,
+                    child: Padding(
+                      padding: EdgeInsets.all(40),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Form(
+                            key: _formStateKey,
+                            autovalidate: true,
+                            child: Column(
+                              children: <Widget>[
+                                Padding(
+                                  padding:
+                                  EdgeInsets.only(left: 10, right: 10, bottom: 5),
+                                  child: TextFormField(
+                                    validator: validateEmail,
+                                    onSaved: (value) {
+                                      _emailId = value;
+                                    },
+                                    keyboardType: TextInputType.emailAddress,
+                                    controller: _emailIdController,
+                                    decoration: InputDecoration(
+                                      focusedBorder: new UnderlineInputBorder(
+                                        borderSide: new BorderSide(
+                                            color: Colors.blue,
+                                            width: 2,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      labelText: "Email Id",
+                                      icon: Icon(
+                                        Icons.email,
                                         color: Colors.blue,
-                                        width: 2,
-                                        style: BorderStyle.solid),
-                                  ),
-                                  labelText: "Email Id",
-                                  icon: Icon(
-                                    Icons.email,
-                                    color: Colors.blue,
-                                  ),
-                                  fillColor: Colors.white,
-                                  labelStyle: TextStyle(
-                                    color: Colors.blue,
+                                      ),
+                                      fillColor: Colors.white,
+                                      labelStyle: TextStyle(
+                                        color: Colors.blueAccent,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                              EdgeInsets.only(left: 10, right: 10, bottom: 5),
-                              child: TextFormField(
-                                validator: validatePassword,
-                                onSaved: (value) {
-                                  _password = value;
-                                },
-                                controller: _passwordController,
-                                obscureText: true,
-                                decoration: InputDecoration(
-                                  focusedBorder: new UnderlineInputBorder(
-                                      borderSide: new BorderSide(
-                                          color: Colors.blue,
-                                          width: 2,
-                                          style: BorderStyle.solid)),
-                                  labelText: "Password",
-                                  icon: Icon(
-                                    Icons.lock,
-                                    color: Colors.blue,
-                                  ),
-                                  fillColor: Colors.white,
-                                  labelStyle: TextStyle(
-                                    color: Colors.blue,
+                                Padding(
+                                  padding:
+                                  EdgeInsets.only(left: 10, right: 10, bottom: 5),
+                                  child: TextFormField(
+                                    validator: validatePassword,
+                                    onSaved: (value) {
+                                      _password = value;
+                                    },
+                                    controller: _passwordController,
+                                    obscureText: true,
+                                    decoration: InputDecoration(
+                                      focusedBorder: new UnderlineInputBorder(
+                                          borderSide: new BorderSide(
+                                              color: Colors.blueAccent,
+                                              width: 2,
+                                              style: BorderStyle.solid)),
+                                      labelText: "Password",
+                                      icon: Icon(
+                                        Icons.lock,
+                                        color: Colors.blueAccent,
+                                      ),
+                                      fillColor: Colors.white,
+                                      labelStyle: TextStyle(
+                                        color: Colors.blue,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
+                              ],
                             ),
-                          ],
-                        ),
-                      ),
-                      (errorMessage != ''
-                          ? Text(
-                        errorMessage,
-                        style: TextStyle(color: Colors.red),
-                      )
-                          : Container()),
+                          ),
+                          (errorMessage != ''
+                              ? Text(
+                            errorMessage,
+                            style: TextStyle(color: Colors.lightBlueAccent),
+                          )
+                              : Container()),
 
-                            SizedBox(height: 50),
-                            FlatButton(
-                              child: Text(
-                                'LOGIN',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.white,
-                                ),
+                          SizedBox(height: 50),
+                          FlatButton(
+                            child: Text(
+                              'LOGIN',
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.white,
                               ),
-                              color: Colors.blueAccent,
-                              onPressed: () {
-                                if (_formStateKey.currentState.validate()) {
-                                  _formStateKey.currentState.save();
-                                  signIn(_emailId, _password).then((user) {
+                            ),
+                            color: Colors.lightBlueAccent,
+                            onPressed: () {
+                              if (_formStateKey.currentState.validate()) {
+                                _formStateKey.currentState.save();
+                                signIn(_emailId, _password).then((user) {
+                                  if (user != null) {
+                                    print('Logged in successfully.');
+                                    setState(() {
+                                      successMessage =
+                                      'Logged in successfully.\nYou can now navigate to Home Page.';
+
+                                    });
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(builder: (context) => Categories()),
                                     );
-                                    if (user != null) {
-                                      print('Logged in successfully.');
-                                      setState(() {
-                                        successMessage =
-                                        'Logged in successfully.\nYou can now navigate to Home Page.';
-
-                                      });
-                                    } else {
-                                      print('Error while Login.');
-                                    }
-                                  });
-                                }
-                              },
-                            ),
-                            FlatButton(
-                              child: Text(
-                                'Sign Up',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.white,
-                                ),
+                                  } else {
+                                    print('Error while Login.');
+                                  }
+                                });
+                              }
+                            },
+                          ),
+                          FlatButton(
+                            child: Text(
+                              'Get Register',
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.white,
                               ),
-                              color: Colors.blueGrey,
-                              onPressed: () {
-                                Navigator.pushReplacement(
-                                  context,
-                                  new MaterialPageRoute(
-                                    builder: (context) => RegistrationPage(),
-                                  ),
-                                );
-                              },
                             ),
-                          ],
+                            color: Colors.blueGrey,
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                context,
+                                new MaterialPageRoute(
+                                  builder: (context) => RegistrationPage(),
+                                ),
+                              );
+                            },
+                          ),
+                        ],
 
+                      ),
+                    ),
                   ),
-                ),
-              ),
 
-            ],
+                ],
 
-          )),
-    ),
+              )),
         ),
+      ),
     );
   }
 
@@ -273,7 +275,7 @@ class BackgroundSignIn extends CustomPainter {
         sw * 0.6, sh * 0.05, sw * 0.27, sh * 0.01, sw * 0.18, sh * 0.12);
     yellowWave.quadraticBezierTo(sw * 0.12, sh * 0.2, 0, sh * 0.2);
     yellowWave.close();
-    paint.color = Colors.blue;
+    paint.color = Colors.blueAccent;
     canvas.drawPath(yellowWave, paint);
   }
 

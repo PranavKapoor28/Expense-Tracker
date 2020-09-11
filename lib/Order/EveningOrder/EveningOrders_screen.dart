@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 
@@ -12,7 +14,7 @@ class EveningOrderScreen extends StatefulWidget {
 }
 
 final notesReference =
-FirebaseDatabase.instance.reference().child('user').child('Evening').child('Customers').child('Orders');
+FirebaseDatabase.instance.reference().child('user').child('Orders');
 
 class _EveningOrderScreenState extends State<EveningOrderScreen> {
   TextEditingController _quantityController;
@@ -29,7 +31,12 @@ class _EveningOrderScreenState extends State<EveningOrderScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Orders')),
+      appBar: AppBar(title: Text('Orders'),
+    leading: IconButton(icon:Icon(Icons.arrow_back),
+    //onPressed:() => Navigator.pop(context, false),
+    onPressed:() => exit(0),
+    )
+      ),
       body: Container(
         margin: EdgeInsets.all(15.0),
         alignment: Alignment.center,

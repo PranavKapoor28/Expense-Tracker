@@ -9,8 +9,7 @@ class EveningOrdersList extends StatefulWidget {
   _EveningOrdersListState createState() => new _EveningOrdersListState();
 }
 
-final notesReference =
-FirebaseDatabase.instance.reference().child('user').child('Evening').child('Customers').child('Orders');
+final notesReference = FirebaseDatabase.instance.reference().child('user').child('Orders');
 
 class _EveningOrdersListState extends State<EveningOrdersList> {
   List<EveningOrder> items;
@@ -41,8 +40,14 @@ class _EveningOrdersListState extends State<EveningOrdersList> {
       title: 'Customer Details',
       home: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: true,
+          leading:IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed:() => Navigator.pop(context,false),
+          ),
           title: Text('Add Quantity and Price'),
           backgroundColor: Colors.blue,
+
         ),
         body: Center(
           child: ListView.builder(
@@ -65,14 +70,18 @@ class _EveningOrdersListState extends State<EveningOrdersList> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          SizedBox(height: 50,),
+                          SizedBox(
+                            height: 50,
+                          ),
                           Text(
                             '${items[position].price}',
                             style: TextStyle(fontSize: 14.0),
                           )
                         ]),
                       ),
-                      SizedBox(width: 100,),
+                      SizedBox(
+                        width: 100,
+                      ),
                       Align(
                         alignment: Alignment.topRight,
                         child: Column(
@@ -82,7 +91,8 @@ class _EveningOrdersListState extends State<EveningOrdersList> {
                                 Icons.edit,
                                 color: const Color(0xFF167F67),
                               ),
-                              onPressed: () => _navigateToNote(context, items[position]),
+                              onPressed: () =>
+                                  _navigateToNote(context, items[position]),
                             ),
                             CircleAvatar(
                               maxRadius: 20.0,
@@ -93,11 +103,9 @@ class _EveningOrdersListState extends State<EveningOrdersList> {
                                       context, items[position], position)),
                             ),
                           ],
-
                         ),
                       ),
                     ],
-
                   ),
                 );
               }),
@@ -118,14 +126,15 @@ class _EveningOrdersListState extends State<EveningOrdersList> {
 
   void _onNoteUpdated(Event event) {
     var oldNoteValue =
-    items.singleWhere((order) => order.id == event.snapshot.key);
+        items.singleWhere((order) => order.id == event.snapshot.key);
     setState(() {
       items[items.indexOf(oldNoteValue)] =
-      new EveningOrder.fromSnapshot(event.snapshot);
+          new EveningOrder.fromSnapshot(event.snapshot);
     });
   }
 
-  void _deleteNote(BuildContext context,EveningOrder order, int position) async {
+  void _deleteNote(
+      BuildContext context, EveningOrder order, int position) async {
     await notesReference.child(order.id).remove().then((_) {
       setState(() {
         items.removeAt(position);
@@ -143,7 +152,8 @@ class _EveningOrdersListState extends State<EveningOrdersList> {
   void _createNewNote(BuildContext context) async {
     await Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => EveningOrderScreen(EveningOrder(null, '', ''))),
+      MaterialPageRoute(
+          builder: (context) => EveningOrderScreen(EveningOrder(null, '', ''))),
     );
   }
 }

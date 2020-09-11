@@ -54,6 +54,7 @@ class _MyHomePageState extends State<EveningAccountDashboard> implements AddUser
     return new Scaffold(
       appBar: new AppBar(
         title: _buildTitle(context),
+
       ),
       body: new FirebaseAnimatedList(
         key: new ValueKey<bool>(_anchorToBottom),

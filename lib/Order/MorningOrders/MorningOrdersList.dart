@@ -43,6 +43,11 @@ class _MorningOrdersListState extends State<MorningOrdersList> {
         appBar: AppBar(
           title: Text('Add Quantity and Price'),
           backgroundColor: Colors.blue,
+          automaticallyImplyLeading: true,
+          leading:IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed:() => Navigator.pop(context,false),
+          ),
         ),
         body: Center(
           child: ListView.builder(

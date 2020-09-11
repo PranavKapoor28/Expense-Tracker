@@ -14,6 +14,11 @@ class TabBarDemo extends StatelessWidget {
         length: 2,
         child: Scaffold(
           appBar: AppBar(
+            automaticallyImplyLeading: true,
+            leading:IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed:() => Navigator.pop(context,false),
+            ),
             bottom: TabBar(
               tabs: [
                 Tab(icon: Icon(Icons.supervised_user_circle)),
