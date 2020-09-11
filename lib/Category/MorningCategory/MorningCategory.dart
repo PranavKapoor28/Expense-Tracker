@@ -1,5 +1,6 @@
 import 'file:///C:/Users/Pranav%20kapoor/AndroidStudioProjects/Internship%20apps/ecommerce_buisness_tech/lib/Category/MorningCategory/morning_user_dashboard.dart';
 import 'package:ecommerce_buisness_tech/Category/MorningCategory/MorningAccount.dart';
+import 'package:ecommerce_buisness_tech/Category/categories.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +18,10 @@ class TabBarDemo extends StatelessWidget {
             automaticallyImplyLeading: true,
             leading:IconButton(
               icon: Icon(Icons.arrow_back),
-              onPressed:() => Navigator.pop(context,false),
+              onPressed:() => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Categories()),
+          ),
             ),
             bottom: TabBar(
               tabs: [

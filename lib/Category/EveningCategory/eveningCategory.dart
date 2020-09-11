@@ -1,5 +1,6 @@
 import 'package:ecommerce_buisness_tech/Category/EveningCategory/EveningAcoount.dart';
 import 'package:ecommerce_buisness_tech/Category/EveningCategory/evening_user_dashboard.dart';
+import 'package:ecommerce_buisness_tech/Category/categories.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +18,10 @@ class TabBarEvening extends StatelessWidget {
             automaticallyImplyLeading: true,
             leading:IconButton(
               icon: Icon(Icons.arrow_back),
-              onPressed:() => Navigator.pop(context,false),
+              onPressed:() =>  Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Categories()),
+              ),
             ),
             bottom: TabBar(
               tabs: [
