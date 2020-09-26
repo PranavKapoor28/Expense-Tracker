@@ -15,6 +15,7 @@ class TabBarEvening extends StatelessWidget {
         length: 2,
         child: Scaffold(
           appBar: AppBar(
+            backgroundColor: Colors.cyan[500],
             automaticallyImplyLeading: true,
             leading:IconButton(
               icon: Icon(Icons.arrow_back),
@@ -25,8 +26,8 @@ class TabBarEvening extends StatelessWidget {
             ),
             bottom: TabBar(
               tabs: [
-                Tab(icon: Icon(Icons.supervised_user_circle)),
-                Tab(icon: Icon(Icons.verified_user)),
+                Tab(icon: Icon(Icons.person)),
+                Tab(icon: Icon(Icons.attach_money)),
 
               ],
             ),

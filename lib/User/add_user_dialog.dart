@@ -6,6 +6,7 @@ class AddUserDialog {
   final teEmail = TextEditingController();
   final teAge = TextEditingController();
   final teMobile = TextEditingController();
+  final price = TextEditingController();
 
   User user;
 
@@ -22,6 +23,7 @@ class AddUserDialog {
       teEmail.text = user.email;
       teAge.text = user.age;
       teMobile.text = user.mobile;
+      price.text = user.price;
     }
 
     return new AlertDialog(
@@ -35,6 +37,7 @@ class AddUserDialog {
             getTextField("Email", teEmail),
             getTextField("Age", teAge),
             getTextField("Mobile", teMobile),
+            getTextField("Price",price),
 
             new GestureDetector(
               onTap: () => onTap(isEdit, _myHomePageState, context),
@@ -90,7 +93,7 @@ class AddUserDialog {
 
   User getData(bool isEdit) {
     return new User(isEdit ? user.id : "", teName.text, teEmail.text,
-        teAge.text, teMobile.text);
+        teAge.text, teMobile.text,price.text);
   }
 
   onTap(bool isEdit, AddUserCallback _myHomePageState, BuildContext context) {

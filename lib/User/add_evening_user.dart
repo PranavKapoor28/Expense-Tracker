@@ -6,6 +6,7 @@ class AddEveningDialog {
   final teEmail = TextEditingController();
   final teAge = TextEditingController();
   final teMobile = TextEditingController();
+  final tePrice = TextEditingController();
 
   UserEvening userEvening;
 
@@ -22,6 +23,7 @@ class AddEveningDialog {
       teEmail.text = userEvening.email;
       teAge.text = userEvening.age;
       teMobile.text = userEvening.mobile;
+      tePrice.text = userEvening.price;
     }
 
     return new AlertDialog(
@@ -35,6 +37,7 @@ class AddEveningDialog {
             getTextField("Email", teEmail),
             getTextField("Age", teAge),
             getTextField("Mobile", teMobile),
+            getTextField("Price",tePrice),
 
             new GestureDetector(
               onTap: () => onTap(isEdit, _myHomePageState, context),
@@ -90,7 +93,7 @@ class AddEveningDialog {
 
   UserEvening getData(bool isEdit) {
     return new UserEvening(isEdit ? userEvening.id : "", teName.text, teEmail.text,
-        teAge.text, teMobile.text);
+        teAge.text, teMobile.text, tePrice.text);
   }
 
   onTap(bool isEdit, AddUserCallback _myHomePageState, BuildContext context) {

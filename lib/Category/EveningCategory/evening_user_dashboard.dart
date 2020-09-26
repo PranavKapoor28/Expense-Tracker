@@ -5,14 +5,14 @@ import 'package:ecommerce_buisness_tech/database/firebase_database_evening.dart'
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
-import 'package:share/share.dart';
 
 class EveningUserDashboard extends StatefulWidget {
   @override
   _MyHomePageState createState() => new _MyHomePageState();
 }
 
-class _MyHomePageState extends State<EveningUserDashboard> implements AddUserCallback {
+class _MyHomePageState extends State<EveningUserDashboard>
+    implements AddUserCallback {
   bool _anchorToBottom = false;
   FirebaseDatabaseUtil databaseUtil;
 
@@ -39,7 +39,7 @@ class _MyHomePageState extends State<EveningUserDashboard> implements AddUserCal
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               new Text(
-                'Add Evening Customers',
+                'Add Customers',
                 style: new TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
@@ -65,6 +65,7 @@ class _MyHomePageState extends State<EveningUserDashboard> implements AddUserCal
 
     return new Scaffold(
       appBar: new AppBar(
+        backgroundColor: Colors.cyan,
         title: _buildTitle(context),
         actions: _buildActions(),
       ),
@@ -102,7 +103,10 @@ class _MyHomePageState extends State<EveningUserDashboard> implements AddUserCal
 
   Widget showUser(DataSnapshot res) {
     UserEvening userEvening = UserEvening.fromSnapshot(res);
-
+    var ref = FirebaseDatabase.instance.reference().child("");
+    ref.orderByChild("timestamp").once().then((snap) {
+      print(snap.value);
+    });
     var item = new Card(
       child: new Container(
           child: new Center(
@@ -111,39 +115,41 @@ class _MyHomePageState extends State<EveningUserDashboard> implements AddUserCal
                 new CircleAvatar(
                   radius: 30.0,
                   child: new Text(getShortName(userEvening)),
-                  backgroundColor: const Color(0xFF20283e),
+                  backgroundColor: Colors.blue[100],
                 ),
                 new Expanded(
                   child: new Padding(
                     padding: const EdgeInsets.all(9.0),
-                    child: new Column(
+                    child: new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        new Text(
-                          userEvening.name,
-                          // set some style to text
-                          style: new TextStyle(
-                              fontSize: 15.0, color: Colors.lightBlueAccent),
+                        Column(
+                          children: <Widget>[
+                            Text(
+                              userEvening.name,
+                              // set some style to text
+                              style: new TextStyle(
+                                  fontSize: 17.0, color: Colors.black),
+                            ),
+                            Text(
+                              userEvening.mobile,
+                              // set some style to text
+                              style: new TextStyle(
+                                  fontSize: 14.0, color: Colors.black45),
+                            ),
+                          ],
                         ),
-                        new Text(
-                          userEvening.email,
-                          // set some style to text
-                          style: new TextStyle(
-                              fontSize: 15.0, color: Colors.lightBlueAccent),
+                        Column(
+                          children: <Widget>[
+                            Text(
+                              userEvening.price,
+                              // set some style to text
+                              style: new TextStyle(
+                                  fontSize: 24.0, color: Colors.green),
+                            ),
+                          ],
                         ),
-                        new Text(
-                          userEvening.age,
-                          // set some style to text
-                          style: new TextStyle(
-                              fontSize: 15.0, color: Colors.green),
-                        ),
-                        new Text(
-                          userEvening.mobile,
-                          // set some style to text
-                          style: new TextStyle(
-                              fontSize: 15.0, color: Colors.green),
-                        ),
-
                       ],
                     ),
                   ),
@@ -158,7 +164,6 @@ class _MyHomePageState extends State<EveningUserDashboard> implements AddUserCal
                       ),
                       onPressed: () => showEditWidget(userEvening, true),
                     ),
-
                     new IconButton(
                       icon: const Icon(Icons.delete_forever,
                           color: const Color(0xFF167F67)),
@@ -199,8 +204,8 @@ class _MyHomePageState extends State<EveningUserDashboard> implements AddUserCal
   showEditWidget(UserEvening userEvening, bool isEdit) {
     showDialog(
       context: context,
-      builder: (BuildContext context) =>
-          new AddEveningDialog().buildAboutDialog(context, this, isEdit, userEvening),
+      builder: (BuildContext context) => new AddEveningDialog()
+          .buildAboutDialog(context, this, isEdit, userEvening),
     );
   }
 

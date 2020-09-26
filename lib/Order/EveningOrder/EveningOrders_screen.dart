@@ -32,6 +32,7 @@ class _EveningOrderScreenState extends State<EveningOrderScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Orders'),
+          backgroundColor: Colors.cyan,
     leading: IconButton(icon:Icon(Icons.arrow_back),
     //onPressed:() => Navigator.pop(context, false),
     onPressed:() => exit(0),

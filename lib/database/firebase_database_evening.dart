@@ -5,7 +5,6 @@ import 'package:firebase_database/firebase_database.dart';
 class FirebaseDatabaseUtil {
   DatabaseReference _counterRef;
   DatabaseReference _userRef;
-  DatabaseReference _orderRef;
   StreamSubscription<Event> _counterSubscription;
   StreamSubscription<Event> _messagesSubscription;
   FirebaseDatabase database = new FirebaseDatabase();
@@ -29,6 +28,7 @@ class FirebaseDatabaseUtil {
     _userRef = database.reference().child('user').child('Evening').child('Customers');
     database.reference().child('counter').once().then((DataSnapshot snapshot) {
       print('Connected to second database and read ${snapshot.value}');
+
     });
     database.setPersistenceEnabled(true);
     database.setPersistenceCacheSizeBytes(10000000);
@@ -70,6 +70,7 @@ class FirebaseDatabaseUtil {
         "age": "" + userEvening.age,
         "email": "" + userEvening.email,
         "mobile": "" + userEvening.mobile,
+        "price": "" + userEvening.price,
       }).then((_) {
         print('Transaction  committed.');
       });
@@ -96,6 +97,7 @@ class FirebaseDatabaseUtil {
       "age": "" + userEvening.age,
       "email": "" + userEvening.email,
       "mobile": "" + userEvening.mobile,
+      "price": "" + userEvening.price,
     }).then((_) {
       print('Transaction  committed.');
     });

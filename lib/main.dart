@@ -1,3 +1,4 @@
+import 'package:ecommerce_buisness_tech/Category/categories.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -58,7 +59,7 @@ class _MyLoginOptionState extends State<MyLoginOption> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => LoginPage()),
+                      MaterialPageRoute(builder: (context) => Categories()),
                     );
                   },
                   child: Text('Sign in with email'),
@@ -148,7 +149,7 @@ class BackgroundSignIn extends CustomPainter {
         sw * 0.6, sh * 0.05, sw * 0.27, sh * 0.01, sw * 0.18, sh * 0.12);
     yellowWave.quadraticBezierTo(sw * 0.12, sh * 0.2, 0, sh * 0.2);
     yellowWave.close();
-    paint.color = Colors.blue;
+    paint.color = Colors.lightBlueAccent;
     canvas.drawPath(yellowWave, paint);
   }
 

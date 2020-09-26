@@ -1,15 +1,14 @@
 import 'package:firebase_database/firebase_database.dart';
 
 class User {
-
   String _id;
   String _name;
   String _email;
   String _age;
   String _mobile;
+  String _price;
 
-
-  User(this._id,this._name, this._email, this._age, this._mobile);
+  User(this._id, this._name, this._email, this._age, this._mobile, this._price);
 
   String get name => _name;
 
@@ -21,7 +20,7 @@ class User {
 
   String get id => _id;
 
-
+  String get price => _price;
 
   User.fromSnapshot(DataSnapshot snapshot) {
     _id = snapshot.key;
@@ -29,31 +28,6 @@ class User {
     _email = snapshot.value['email'];
     _age = snapshot.value['age'];
     _mobile = snapshot.value['mobile'];
-  }
-
-}
-
-class MorningOrder {
-  String _id;
-  String _quantity;
-  String _price;
-
-  MorningOrder(this._id, this._quantity, this._price);
-
-  MorningOrder.map(dynamic obj) {
-    this._id = obj['id'];
-    this._quantity = obj['quantity'];
-    this._price = obj['price'];
-  }
-
-  String get id => _id;
-  String get quantity => _quantity;
-  String get price => _price;
-
-  MorningOrder.fromSnapshot(DataSnapshot snapshot) {
-    _id = snapshot.key;
-    _quantity = snapshot.value['quantity'];
     _price = snapshot.value['price'];
   }
 }
-

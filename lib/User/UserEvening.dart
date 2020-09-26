@@ -7,9 +7,9 @@ class UserEvening {
   String _email;
   String _age;
   String _mobile;
+  String _price;
 
-
-  UserEvening(this._id,this._name, this._email, this._age, this._mobile);
+  UserEvening(this._id, this._name, this._email, this._age, this._mobile, this._price);
 
   String get name => _name;
 
@@ -21,6 +21,8 @@ class UserEvening {
 
   String get id => _id;
 
+  String get price => _price;
+
 
 
   UserEvening.fromSnapshot(DataSnapshot snapshot) {
@@ -29,6 +31,7 @@ class UserEvening {
     _email = snapshot.value['email'];
     _age = snapshot.value['age'];
     _mobile = snapshot.value['mobile'];
+    _price = snapshot.value['price'];
   }
 
 }

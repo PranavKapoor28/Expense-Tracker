@@ -30,7 +30,7 @@ class Categories extends StatelessWidget {
                 "Add your Customers",
                 textScaleFactor: 3.0,
                 style: TextStyle(
-                    color: Colors.blue,
+                    color: Colors.lightBlueAccent,
                     fontWeight: FontWeight.bold,
                     fontSize: 15),
                 textAlign: TextAlign.center,

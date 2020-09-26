@@ -11,7 +11,8 @@ class EveningAccountDashboard extends StatefulWidget {
   _MyHomePageState createState() => new _MyHomePageState();
 }
 
-class _MyHomePageState extends State<EveningAccountDashboard> implements AddUserCallback {
+class _MyHomePageState extends State<EveningAccountDashboard>
+    implements AddUserCallback {
   bool _anchorToBottom = false;
   FirebaseDatabaseUtil databaseUtil;
 
@@ -50,11 +51,10 @@ class _MyHomePageState extends State<EveningAccountDashboard> implements AddUser
       );
     }
 
-
     return new Scaffold(
       appBar: new AppBar(
         title: _buildTitle(context),
-
+        backgroundColor: Colors.cyan,
       ),
       body: new FirebaseAnimatedList(
         key: new ValueKey<bool>(_anchorToBottom),
@@ -99,54 +99,50 @@ class _MyHomePageState extends State<EveningAccountDashboard> implements AddUser
                 new CircleAvatar(
                   radius: 30.0,
                   child: new Text(getShortName(userEvening)),
-                  backgroundColor: const Color(0xFF20283e),
+                  backgroundColor: Colors.blue[100],
                 ),
                 new Expanded(
                   child: new Padding(
                     padding: const EdgeInsets.all(9.0),
-                    child: new Column(
+                    child: new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        new Text(
-                          userEvening.name,
-                          // set some style to text
-                          style: new TextStyle(
-                              fontSize: 15.0, color: Colors.lightBlueAccent),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              userEvening.name,
+                              // set some style to text
+                              style: new TextStyle(
+                                  fontSize: 17.0, color: Colors.black),
+                            ),
+                          ],
                         ),
-
-
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              userEvening.price,
+                              // set some style to text
+                              style: new TextStyle(
+                                  fontSize: 24.0, color: Colors.green),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ),
                 ),
-                new Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-
-                    new IconButton(
-                      icon: const Icon(
-                        Icons.attach_money,
-                        color: const Color(0xFF167F67),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => EveningOrdersList()),
-                        );
-                      },
-                    ),
-                  ],
-                ),
               ],
             ),
-          ),
-          padding: const EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 0.0)),
-    );
 
+
+    ),
+      ),
+    );
     return item;
   }
-
   String getShortName(UserEvening user) {
     String shortName = "";
     if (!user.name.isEmpty) {
@@ -158,8 +154,8 @@ class _MyHomePageState extends State<EveningAccountDashboard> implements AddUser
   showEditWidget(UserEvening userEvening, bool isEdit) {
     showDialog(
       context: context,
-      builder: (BuildContext context) =>
-          new AddEveningDialog().buildAboutDialog(context, this, isEdit, userEvening),
+      builder: (BuildContext context) => new AddEveningDialog()
+          .buildAboutDialog(context, this, isEdit, userEvening),
     );
   }
 

@@ -16,18 +16,17 @@ class TabBarDemo extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             automaticallyImplyLeading: true,
-            leading:IconButton(
+            leading: IconButton(
               icon: Icon(Icons.arrow_back),
-              onPressed:() => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => Categories()),
-          ),
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Categories()),
+              ),
             ),
             bottom: TabBar(
               tabs: [
                 Tab(icon: Icon(Icons.supervised_user_circle)),
                 Tab(icon: Icon(Icons.verified_user)),
-
               ],
             ),
             title: Text('Customers List'),
